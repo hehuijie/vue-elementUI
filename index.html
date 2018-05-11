@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>米校制作中心</title>
+        <link rel="stylesheet" href="node_modules/element-ui/lib/theme-chalk/index.css" />
+        <link rel="stylesheet" href="css/ve-style.css" />
+    </head>
+
+    <body>
+        <div id="vueElementUI">
+            <el-container>
+                <el-header height="36px">
+                    <span v-for="(value,key) in userList">{{key}}：{{value}}|</span>
+                    <span>退出</span>
+                </el-header>
+                <el-main>
+                    <el-header height="93px">
+                        <el-row>
+                            <el-col :span="8"><img class="veLogo" v-bind:src="'img/'+imgUrl"/></el-col>
+                            <el-col :span="4" v-for="menuli in menuList">
+                                {{menuli}}
+                            </el-col>
+                        </el-row>
+                    </el-header>
+                    <el-main>
+                        <div class="operateDiv">
+                            <span v-for="operateVal in operateList">{{operateVal}}</span>
+                        </div>
+                        <el-row type="flex" justify="space-around">
+                            <el-col :span="6">
+                                    <div class="page_zone">
+                                        <ul class="ulStyle">
+                                            <li v-for="(num,index) in numList" class="numPage"><el-button>第 {{num}}页</el-button></li>
+                                        </ul>
+                                    </div>
+                            </el-col>
+                            <el-col :span="6">
+                                <div>
+                                    <div class="mobileModule"></div>
+                                </div>
+                                <ul class="ulStyle">
+                                    <li></li>
+                                </ul>
+                            </el-col>
+                            <el-col :span="6">
+                                <div class="edit_zone"></div>
+                            </el-col>
+                        </el-row>
+                    </el-main>
+                    <el-footer height="160px">
+                        <el-row :gutter="20" type="flex">
+                            <el-col :span="4" v-for="(intro,index) in menuIntro">
+                                <p v-for="val in intro">{{val}}</p>
+                            </el-col>
+                            <el-col :span="6">
+                                <p>联系我们</p>
+                                <p v-for="(contact,key) in contactUs">{{key}}:{{contact}}</p>
+                            </el-col>
+                        </el-row>
+                    </el-footer>
+                </el-main>
+                <el-footer height="83px">{{footerMesg}}</el-footer>
+            </el-container>
+        </div>
+    </body>
+
+</html>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script src="node_modules/element-ui/lib/index.js"></script>
+<script src="js/ve-index.js"></script>
